@@ -4,17 +4,27 @@
  * @link https://developer.mozilla.org/en-US/docs/Web/API/Element/querySelectorAll
  */
 
-import Backpack from "./Backpack.js";
+import university from "./university.js";
 
-const everydayPack = new Backpack(
+const theUniv = new university(
+  "Private University",
+  1881,
+  "San Antonio,TX",
+  9366,
+  "Red and Black",
+  "logo.svg"
 );
 
 const content = `
      <figure class="backpack__image">
-       <img src= alt="" />
+       <img src=${theUniv.logo} alt="University Logo" />
      </figure>
-     <h1 class="backpack__name"></h1>
+     <h4 class="backpack__name"> ${theUniv.type}</h4>
      <ul class="backpack__features">
+     <li> Established: ${theUniv.established}</li>
+     <li> City: ${theUniv.city}</li>
+     <li> Students: ${theUniv.studentsNumber}</li>
+     <li> Color: ${theUniv.color}</li>
      </ul>
    </article>
  `;
@@ -23,7 +33,7 @@ const main = document.querySelector(".maincontent");
 
 
 const newArticle = document.createElement('article');
-newArticle.classList.add('backpack');
+newArticle.classList.add('university');
 newArticle.setAttribute('id','everyday');
 newArticle.innerHTML = content;
 
